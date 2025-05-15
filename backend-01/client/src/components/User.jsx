@@ -8,9 +8,9 @@ const User = ( { usersData } ) => {
       {users.map((user) => (
         <div className="card card-dash bg-base-200 w-96" key={user.id}>
           <div className="card-body">
-            <h2 className="card-title">{user.name}</h2>
-            <p>{user.email}</p>
-            <p>{user.address}</p>
+            <h2 className="card-title">Name: {user.name}</h2>
+            <p>Email: {user.email}</p>
+            <p>Address: {user.address}</p>
            
           </div>
         </div>

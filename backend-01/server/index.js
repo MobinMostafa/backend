@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
@@ -32,8 +33,18 @@ const users = [
 app.get('/', (req,res) => {
     res.send('Hello World!')
 })
+
 app.get('/users', (req,res) => {
     res.send(users)
 })
+
+app.post('/users', (req,res) => {
+    const user = req.body;
+    user.id = users.length + 1;
+    users.push(user);
+    res.send(user);
+    console.log(user);
+})
+
 
 app.listen(port, () => console.log(`Server is running on ${port}`))
