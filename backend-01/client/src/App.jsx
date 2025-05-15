@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import Nav from "./components/Nav"
+
 import User from "./components/User"
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
   
   return (
     <>
-      <Nav/>  
+    
       <User usersData={usersData} />
     </>
   )
