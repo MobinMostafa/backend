@@ -5,6 +5,7 @@ import './index.css'
 import Layout from './pages/Layout.jsx'
 import CreateUser from './pages/CreateUser.jsx'
 import App from './App.jsx'
+import Edit from './pages/Edit.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path: "create",
         element: <CreateUser/>
+      },
+      {
+        path: "update/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/users/${params.id}`),
+        element: <Edit/>
       }
     ]
   },

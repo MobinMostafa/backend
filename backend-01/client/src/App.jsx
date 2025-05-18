@@ -27,8 +27,11 @@ const App = () => {
         method: "DELETE"
       })
         .then(res => res.json())
-        .then(() => {
-          // console.log("User deleted:", data);
+        .then(data => {
+          if(data.deletedCount){
+            const remainingUsers = usersData.filter(user => user._id !== id);
+            setUsersData(remainingUsers);
+          }
           Swal.fire({
             position: "center",
             icon: "success",
