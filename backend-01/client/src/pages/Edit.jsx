@@ -1,8 +1,9 @@
 import React from 'react'
-import {Link, useLoaderData} from 'react-router-dom'
+import {Link, useLoaderData,useNavigate} from 'react-router-dom'
 
 const Edit = () => {
     const user = useLoaderData();
+    const navigate = useNavigate();
     // console.log(user)
     const handleUpdate = e => {
         e.preventDefault();
@@ -21,7 +22,8 @@ const Edit = () => {
             })
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
+        navigate('/');
     }
   return (
       <div className='w-[100%] py-13 lg:px-[50px] px-5 flex flex-col justify-center items-center'>
